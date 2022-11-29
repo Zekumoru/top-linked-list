@@ -376,3 +376,32 @@ function test(name, object) {
     'Size is correct': list.size === 1,
   });
 }());
+
+(function TestAtWithNegativeIndex() {
+  const list = new LinkedList('foo');
+
+  test('TestAtWithNegativeIndex', {
+    'At is null': list.at(-1) == null,
+  });
+}());
+
+(function TestAtWithHighIndex() {
+  const list = new LinkedList('foo');
+
+  test('TestAtWithHighIndex', {
+    'At is null': list.at(100) == null,
+  });
+}());
+
+(function TestAt() {
+  const list = new LinkedList();
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  test('TestAt', {
+    '0 index is correct': list.at(0).value === 'foo',
+    'Specific index is correct': list.at(2).value === 'baz',
+  });
+}());

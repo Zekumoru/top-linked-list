@@ -129,7 +129,14 @@ module.exports = class LinkedList {
   }
 
   at(index) {
-    throw new Error('Stub!');
+    if (index == null) return null;
+    if (index < 0) return null;
+    if (index >= this.#size) return null;
+
+    let current = this.#head;
+    for (let i = 0; i < index; i++) current = current.nextNode;
+
+    return current;
   }
 
   contains(value) {
