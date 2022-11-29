@@ -49,7 +49,16 @@ module.exports = class LinkedList {
   }
 
   prepend(value) {
-    throw new Error('Stub!');
+    this.#size++;
+
+    if (this.#head == null) {
+      this.#head = new Node(value);
+      this.#tail = this.#head;
+      return;
+    }
+
+    const newNode = new Node(value, this.#head);
+    this.#head = newNode;
   }
 
   insertAt(value, index) {

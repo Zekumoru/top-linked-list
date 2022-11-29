@@ -69,3 +69,26 @@ function test(name, object) {
     'Size is 5': list.size === 5,
   });
 }());
+
+(function TestNullHeadPrepend() {
+  const list = new LinkedList();
+  const value = 'foo';
+  list.prepend(value);
+
+  test('TestPrepend', {
+    'Head is new value': list.head.value === value,
+    'Tail is head': list.head === list.tail,
+    'Size is 1': list.size === 1,
+  });
+}());
+
+(function TestPrepend() {
+  const list = new LinkedList('foo');
+
+  list.prepend('bar');
+  test('TestPrepend', {
+    'Head is correct': list.head.value === 'bar',
+    'Tail is correct': list.tail.value === 'foo',
+    'Size is 2': list.size === 2,
+  });
+}());
