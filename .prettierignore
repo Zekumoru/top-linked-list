@@ -4,6 +4,9 @@
 # Ignore HTML files
 *.html
 
+# Ignores
+README.md
+
 # Logs
 logs
 *.log
