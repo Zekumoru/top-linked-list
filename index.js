@@ -92,3 +92,20 @@ function test(name, object) {
     'Size is 2': list.size === 2,
   });
 }());
+
+(function TestMultiplePrepend() {
+  const list = new LinkedList();
+
+  list.prepend('foo');
+  list.prepend(5);
+  list.prepend(9);
+  list.prepend('bar');
+  list.prepend('baz');
+
+  test('TestPrepend', {
+    'Head is correct': list.head.value === 'baz',
+    'Tail is correct': list.tail.value === 'foo',
+    'Head\'s next is correct': list.head.nextNode.value === 'bar',
+    'Size is 5': list.size === 5,
+  });
+}());
