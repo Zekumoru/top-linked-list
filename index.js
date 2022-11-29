@@ -262,3 +262,52 @@ function test(name, object) {
     'Size is correct': list.size === 1,
   });
 }());
+
+(function TestNullHeadShift() {
+  const list = new LinkedList();
+  const shifted = list.shift();
+
+  test('TestNullHeadShift', {
+    'Head is null': list.head == null,
+    'Tail is null': list.tail == null,
+    'Shifted is null': shifted == null,
+    'Size is 0': list.size === 0,
+  });
+}());
+
+(function TestHeadShift() {
+  const list = new LinkedList('foo');
+
+  const shifted = list.shift();
+  test('TestHeadShift', {
+    'Head is null': list.head == null,
+    'Tail is null': list.tail == null,
+    'Shifted is correct': shifted.value === 'foo',
+    'Size is correct': list.size === 0,
+  });
+}());
+
+(function TestShift() {
+  const list = new LinkedList();
+  let shifted;
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  shifted = list.shift();
+  test('TestShift', {
+    'Head is correct': list.head.value === 'bar',
+    'Tail is correct': list.tail.value === 'baz',
+    'Shifted is correct': shifted.value === 'foo',
+    'Size is correct': list.size === 2,
+  });
+
+  shifted = list.shift();
+  test('TestShift2', {
+    'Head is correct': list.head.value === 'baz',
+    'Tail is correct': list.tail === list.head,
+    'Shifted is correct': shifted.value === 'bar',
+    'Size is correct': list.size === 1,
+  });
+}());

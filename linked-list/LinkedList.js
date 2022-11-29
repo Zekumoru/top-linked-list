@@ -82,6 +82,17 @@ module.exports = class LinkedList {
     this.#size++;
   }
 
+  shift() {
+    if (this.#head == null) return null;
+
+    const shifted = this.#head;
+    this.#head = shifted.nextNode;
+    if (this.#head == null) this.#tail = null;
+
+    this.#size--;
+    return shifted;
+  }
+
   pop() {
     if (this.#size === 0) return null;
     if (this.#size === 1) {
