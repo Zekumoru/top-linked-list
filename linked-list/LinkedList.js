@@ -83,7 +83,14 @@ module.exports = class LinkedList {
   }
 
   pop() {
-    throw new Error('Stub!');
+    if (this.#size === 0) return null;
+    if (this.#size === 1) {
+      const head = this.#head;
+      this.#head = null;
+      this.#tail = null;
+      this.#size = 0;
+      return head;
+    }
   }
 
   removeAt(index) {

@@ -215,3 +215,25 @@ function test(name, object) {
     'Size is correct': list.size === 5,
   });
 }());
+
+(function TestNullHeadPop() {
+  const list = new LinkedList();
+  const popped = list.pop();
+
+  test('TestNullHeadPop', {
+    'Pop is null': popped == null,
+    'Size is 0': list.size === 0,
+  });
+}());
+
+(function TestHeadPop() {
+  const list = new LinkedList('foo');
+  const popped = list.pop();
+
+  test('TestHeadPop', {
+    'Head is null': list.head == null,
+    'Tail is null': list.tail == null,
+    'Head is popped': popped.value === 'foo',
+    'Size is 0': list.size === 0,
+  });
+}());
