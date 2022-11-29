@@ -335,3 +335,19 @@ function test(name, object) {
     'Size is correct': list.size === 0,
   });
 }());
+
+(function TestRemoveAtWithHighIndex() {
+  const list = new LinkedList();
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  const removed = list.removeAt(100);
+  test('TestRemoveAtWithHighIndex', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail.value === 'bar',
+    'Removed is correct': removed.value === 'baz',
+    'Size is correct': list.size === 2,
+  });
+}());

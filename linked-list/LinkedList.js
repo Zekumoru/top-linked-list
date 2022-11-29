@@ -116,6 +116,7 @@ module.exports = class LinkedList {
 
   removeAt(index) {
     if (index == null || index <= 0) return this.shift();
+    if (index >= this.#size) return this.pop();
   }
 
   at(index) {
