@@ -1,14 +1,32 @@
+const Node = require('./Node');
+
 module.exports = class LinkedList {
+  #head;
+  #tail;
+  #size;
+
+  constructor(value = null) {
+    this.#head = null;
+    this.#tail = null;
+    this.#size = 0;
+
+    if (value == null) return;
+
+    this.#head = new Node(value);
+    this.#tail = this.#head;
+    this.#size = 1;
+  }
+
   get size() {
-    throw new Error('Stub!');
+    return this.#size;
   }
 
   get head() {
-    throw new Error('Stub!');
+    return this.#head;
   }
 
   get tail() {
-    throw new Error('Stub!');
+    return this.#tail;
   }
 
   append(value) {
