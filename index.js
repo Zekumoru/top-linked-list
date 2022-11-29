@@ -138,3 +138,62 @@ function test(name, object) {
     'Size is 1': list.size === 1,
   });
 }());
+
+(function TestInsertAt() {
+  let list = new LinkedList();
+  let value;
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  value = 6;
+  list.insertAt(value);
+
+  test('TestInsertAtUndefinedIndex', {
+    'Head is correct': list.head.value === value,
+    'Tail is correct': list.tail.value === 'baz',
+    'Size is correct': list.size === 4,
+  });
+
+  value = 22;
+  list.insertAt(value, -1);
+
+  test('TestInsertAtNegativeIndex', {
+    'Head is correct': list.head.value === value,
+    'Tail is correct': list.tail.value === 'baz',
+    'Size is correct': list.size === 5,
+  });
+
+  value = 'end';
+  list.insertAt(value, 111);
+
+  test('TestInsertAtHighIndex', {
+    'Tail is correct': list.tail.value === 'end',
+  });
+
+  list = new LinkedList();
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  value = 'inserted';
+  list.insertAt(value, 2);
+
+  test('TestInsertAtSpecificIndex', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail.value === 'baz',
+    'Insert is correct': list.head.nextNode.nextNode.value === value,
+    'Size is correct': list.size === 4,
+  });
+
+  value = 'zero';
+  list.insertAt(value, 0);
+
+  test('TestInsertAtZeroIndex', {
+    'Head is correct': list.head.value === value,
+    'Tail is correct': list.tail.value === 'baz',
+    'Insert is correct': list.head.value === value,
+    'Size is correct': list.size === 5,
+  });
+}());
