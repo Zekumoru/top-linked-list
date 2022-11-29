@@ -49,7 +49,7 @@ function test(name, object) {
   list.append(value);
   test('TestAppend', {
     'Tail is the new value': list.tail.value === value,
-    'Size is 2': list.size === 2,
+    'Size is correct': list.size === 2,
   });
 }());
 
@@ -66,7 +66,7 @@ function test(name, object) {
     'Head is correct': list.head.value === 'foo',
     'Tail is correct': list.tail.value === 'baz',
     'Head\'s next is correct': list.head.nextNode.value === 2,
-    'Size is 5': list.size === 5,
+    'Size is correct': list.size === 5,
   });
 }());
 
@@ -89,7 +89,7 @@ function test(name, object) {
   test('TestPrepend', {
     'Head is correct': list.head.value === 'bar',
     'Tail is correct': list.tail.value === 'foo',
-    'Size is 2': list.size === 2,
+    'Size is correct': list.size === 2,
   });
 }());
 
@@ -106,6 +106,6 @@ function test(name, object) {
     'Head is correct': list.head.value === 'baz',
     'Tail is correct': list.tail.value === 'foo',
     'Head\'s next is correct': list.head.nextNode.value === 'bar',
-    'Size is 5': list.size === 5,
+    'Size is correct': list.size === 5,
   });
 }());
