@@ -405,3 +405,24 @@ function test(name, object) {
     'Specific index is correct': list.at(2).value === 'baz',
   });
 }());
+
+(function TestNullHeadContains() {
+  const list = new LinkedList();
+
+  test('TestNullHeadContains', {
+    Working: !list.contains('baz'),
+  });
+}());
+
+(function TestContains() {
+  const list = new LinkedList();
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  test('TestContains', {
+    'Contains is working': list.contains('baz'),
+    'Contains but not in list is working': !list.contains('end'),
+  });
+}());
