@@ -1,4 +1,3 @@
-const Node = require('./linked-list/Node');
 const LinkedList = require('./linked-list/LinkedList');
 
 function test(name, object) {
