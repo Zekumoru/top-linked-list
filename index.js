@@ -1,24 +1,33 @@
 const Node = require('./linked-list/Node');
 const LinkedList = require('./linked-list/LinkedList');
 
+function test(name, object) {
+  console.group(name);
+  Object.entries(object).forEach(([test, result]) => {
+    const output = `${test}: ${result}`;
+    if (result) console.log(output);
+    else console.error(`ERROR! ${output}`);
+  });
+  console.groupEnd(name);
+  console.log();
+}
+
 (function TestConstructor() {
   const list = new LinkedList();
-  console.group('TestConstructor');
-  console.log(`Head is null: ${list.head === null}`);
-  console.log(`Tail is null: ${list.tail === null}`);
-  console.log(`Size is 0: ${list.size === 0}`);
-  console.groupEnd('TestConstructor');
-  console.log();
+  test('TestConstructor', {
+    'Head is null': list.head === null,
+    'Tail is null': list.tail === null,
+    'Size is 0': list.size === 0,
+  });
 }());
 
 (function TestConstructorWithValue() {
   const list = new LinkedList('Foo');
-  console.group('TestConstructorWithValue');
-  console.log(`Head is set: ${!!list.head}`);
-  console.log(`Tail is head: ${list.tail === list.head}`);
-  console.log(`Size is 1: ${list.size === 1}`);
-  console.groupEnd('TestConstructorWithValue');
-  console.log();
+  test('TestConstructorWithValue', {
+    'Head is set': !!list.head,
+    'Tail is head': list.tail === list.head,
+    'Size is 1': list.size === 1,
+  });
 }());
 
 (function TestHeadNullAppend() {
@@ -26,13 +35,11 @@ const LinkedList = require('./linked-list/LinkedList');
   const value = 'foo';
 
   list.append(value);
-
-  console.group('TestHeadNullAppend');
-  console.log(`Head is new value: ${list.head.value === value}`);
-  console.log(`Tail is head: ${list.head === list.tail}`);
-  console.log(`Size is 1: ${list.size === 1}`);
-  console.groupEnd('TestHeadNullAppend');
-  console.log();
+  test('TestHeadNullAppend', {
+    'Head is new value': list.head.value === value,
+    'Tail is head': list.head === list.tail,
+    'Size is 1': list.size === 1,
+  });
 }());
 
 (function TestAppend() {
@@ -40,12 +47,10 @@ const LinkedList = require('./linked-list/LinkedList');
   const value = 'bar';
 
   list.append(value);
-
-  console.group('TestAppend');
-  console.log(`Tail is the new value: ${list.tail.value === value}`);
-  console.log(`Size is 2: ${list.size === 2}`);
-  console.groupEnd('TestAppend');
-  console.log();
+  test('TestAppend', {
+    'Tail is the new value': list.tail.value === value,
+    'Size is 2': list.size === 2,
+  });
 }());
 
 (function TestMultipleAppend() {
@@ -57,11 +62,10 @@ const LinkedList = require('./linked-list/LinkedList');
   list.append('bar');
   list.append('baz');
 
-  console.group('TestMultipleAppend');
-  console.log(`Head is correct: ${list.head.value === 'foo'}`);
-  console.log(`Tail is correct: ${list.tail.value === 'baz'}`);
-  console.log(`Head's next is correct: ${list.head.nextNode.value === 2}`);
-  console.log(`Size is 5: ${list.size === 5}`);
-  console.groupEnd('TestMultipleAppend');
-  console.log();
+  test('TestMultipleAppend', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail.value === 'baz',
+    'Head\'s next is correct': list.head.nextNode.value === 2,
+    'Size is 5': list.size === 5,
+  });
 }());
