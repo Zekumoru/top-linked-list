@@ -311,3 +311,27 @@ function test(name, object) {
     'Size is correct': list.size === 1,
   });
 }());
+
+(function TestRemoveAtWithUndefinedIndex() {
+  const list = new LinkedList('foo');
+  const removed = list.removeAt();
+
+  test('TestRemoveAtWithUndefinedIndex', {
+    'Head is correct': list.head == null,
+    'Tail is correct': list.tail == null,
+    'Removed is correct': removed.value === 'foo',
+    'Size is correct': list.size === 0,
+  });
+}());
+
+(function TestRemoveAtWithZeroIndex() {
+  const list = new LinkedList('foo');
+  const removed = list.removeAt(0);
+
+  test('TestRemoveAtWithZeroIndex', {
+    'Head is correct': list.head == null,
+    'Tail is correct': list.tail == null,
+    'Removed is correct': removed.value === 'foo',
+    'Size is correct': list.size === 0,
+  });
+}());

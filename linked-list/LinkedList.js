@@ -115,7 +115,7 @@ module.exports = class LinkedList {
   }
 
   removeAt(index) {
-    throw new Error('Stub!');
+    if (index == null || index <= 0) return this.shift();
   }
 
   at(index) {
