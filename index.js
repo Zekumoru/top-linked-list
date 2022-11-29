@@ -426,3 +426,27 @@ function test(name, object) {
     'Contains but not in list is working': !list.contains('end'),
   });
 }());
+
+(function TestNullHeadFind() {
+  const list = new LinkedList();
+
+  const found = list.find('foo');
+  test('TestNullHeadFind', {
+    Working: found == null,
+  });
+}());
+
+(function TestFind() {
+  const list = new LinkedList();
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  const index = list.find('bar');
+  const notFound = list.find('end');
+  test('TestFind', {
+    'Find is working': index === 1,
+    'Find but not in list is working': !notFound,
+  });
+}());
