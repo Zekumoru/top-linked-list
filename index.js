@@ -75,7 +75,7 @@ function test(name, object) {
   const value = 'foo';
   list.prepend(value);
 
-  test('TestPrepend', {
+  test('TestNullHeadPrepend', {
     'Head is new value': list.head.value === value,
     'Tail is head': list.head === list.tail,
     'Size is 1': list.size === 1,
@@ -102,7 +102,7 @@ function test(name, object) {
   list.prepend('bar');
   list.prepend('baz');
 
-  test('TestPrepend', {
+  test('TestMultiplePrepend', {
     'Head is correct': list.head.value === 'baz',
     'Tail is correct': list.tail.value === 'foo',
     'Head\'s next is correct': list.head.nextNode.value === 'bar',
