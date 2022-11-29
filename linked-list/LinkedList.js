@@ -94,8 +94,7 @@ module.exports = class LinkedList {
   }
 
   pop() {
-    if (this.#size === 0) return null;
-    if (this.#size === 1) {
+    if (this.#size <= 1) {
       const head = this.#head;
       this.#head = null;
       this.#tail = null;
