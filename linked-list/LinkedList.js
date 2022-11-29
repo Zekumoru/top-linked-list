@@ -62,7 +62,14 @@ module.exports = class LinkedList {
   }
 
   insertAt(value, index) {
-    throw new Error('Stub!');
+    if (index == null || index >= this.#size) {
+      this.append(value);
+      return;
+    }
+
+    if (index < 0) {
+      this.prepend(value);
+    }
   }
 
   pop() {

@@ -109,3 +109,32 @@ function test(name, object) {
     'Size is correct': list.size === 5,
   });
 }());
+
+(function TestNullHeadInsertAt() {
+  const value = 'foo';
+  let list;
+
+  list = new LinkedList();
+  list.insertAt(value);
+  test('TestInsertAtWithUndefinedIndex', {
+    'Head is new value': list.head.value === value,
+    'Tail is head': list.head === list.tail,
+    'Size is 1': list.size === 1,
+  });
+
+  list = new LinkedList();
+  list.insertAt(value, -1);
+  test('TestInsertAtWithNegativeIndex', {
+    'Head is new value': list.head.value === value,
+    'Tail is head': list.head === list.tail,
+    'Size is 1': list.size === 1,
+  });
+
+  list = new LinkedList();
+  list.insertAt(value, 5);
+  test('TestInsertAtWithHighIndex', {
+    'Head is new value': list.head.value === value,
+    'Tail is head': list.head === list.tail,
+    'Size is 1': list.size === 1,
+  });
+}());
