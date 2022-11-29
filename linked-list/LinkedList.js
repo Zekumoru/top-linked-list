@@ -30,7 +30,22 @@ module.exports = class LinkedList {
   }
 
   append(value) {
-    throw new Error('Stub!');
+    this.#size++;
+
+    if (this.#head == null) {
+      this.#head = new Node(value);
+      this.#tail = this.#head;
+      return;
+    }
+
+    const newNode = new Node(value);
+
+    let current = this.#head;
+    while (current.nextNode != null) {
+      current = current.nextNode;
+    }
+    current.nextNode = newNode;
+    this.#tail = newNode;
   }
 
   prepend(value) {
