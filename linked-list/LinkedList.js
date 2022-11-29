@@ -1,4 +1,4 @@
-export default class LinkedList {
+module.exports = class LinkedList {
   get size() {
     throw new Error('Stub!');
   }
@@ -46,4 +46,4 @@ export default class LinkedList {
   toString() {
     throw new Error('Stub!');
   }
-}
+};

@@ -1,4 +1,4 @@
-export default class Node {
+module.exports = class Node {
   value;
   nextNode;
 
@@ -6,4 +6,4 @@ export default class Node {
     this.value = value;
     this.nextNode = nextNode;
   }
-}
+};
