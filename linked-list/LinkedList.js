@@ -91,6 +91,16 @@ module.exports = class LinkedList {
       this.#size = 0;
       return head;
     }
+
+    let current = this.#head;
+    while (current.nextNode.nextNode != null) current = current.nextNode;
+
+    const popped = current.nextNode;
+    current.nextNode = null;
+    this.#tail = current;
+    this.#size--;
+
+    return popped;
   }
 
   removeAt(index) {

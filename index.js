@@ -237,3 +237,28 @@ function test(name, object) {
     'Size is 0': list.size === 0,
   });
 }());
+
+(function TestPop() {
+  const list = new LinkedList();
+  let popped;
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  popped = list.pop();
+  test('TestPop', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail.value === 'bar',
+    'Popped is correct': popped.value === 'baz',
+    'Size is correct': list.size === 2,
+  });
+
+  popped = list.pop();
+  test('TestPop2', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail === list.head,
+    'Popped is correct': popped.value === 'bar',
+    'Size is correct': list.size === 1,
+  });
+}());
