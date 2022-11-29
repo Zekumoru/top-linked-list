@@ -197,3 +197,21 @@ function test(name, object) {
     'Size is correct': list.size === 5,
   });
 }());
+
+(function TestMultipleInsertAt() {
+  const list = new LinkedList();
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  list.insertAt(33, 2);
+  list.insertAt(34, 2);
+
+  test('TestMultipleInsertAt', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail.value === 'baz',
+    'Inserts are correct': list.head.nextNode.nextNode.value === 34 && list.head.nextNode.nextNode.nextNode.value === 33,
+    'Size is correct': list.size === 5,
+  });
+}());
