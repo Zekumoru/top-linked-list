@@ -450,3 +450,15 @@ function test(name, object) {
     'Find but not in list is working': !notFound,
   });
 }());
+
+(function TestToString() {
+  const list = new LinkedList();
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  test('TestToString', {
+    Working: list.toString() === '( foo ) -> ( bar ) -> ( baz ) -> null',
+  });
+}());

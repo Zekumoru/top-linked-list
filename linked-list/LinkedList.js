@@ -158,6 +158,13 @@ module.exports = class LinkedList {
   }
 
   toString() {
-    throw new Error('Stub!');
+    const stringBuilder = [];
+    let current = this.#head;
+    while (current != null) {
+      stringBuilder.push(`( ${current.value} ) -> `);
+      current = current.nextNode;
+    }
+    stringBuilder.push('null');
+    return stringBuilder.join('');
   }
 };
