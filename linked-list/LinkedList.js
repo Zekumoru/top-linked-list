@@ -117,6 +117,16 @@ module.exports = class LinkedList {
   removeAt(index) {
     if (index == null || index <= 0) return this.shift();
     if (index >= this.#size) return this.pop();
+
+    let current = this.#head;
+    for (let i = 1; i < index; i++) current = current.nextNode;
+
+    const removed = current.nextNode;
+    current.nextNode = removed.nextNode;
+    if (removed === this.#tail) this.#tail = current;
+
+    this.#size--;
+    return removed;
   }
 
   at(index) {

@@ -351,3 +351,28 @@ function test(name, object) {
     'Size is correct': list.size === 2,
   });
 }());
+
+(function TestRemoveAt() {
+  const list = new LinkedList();
+  let removed;
+
+  list.append('foo');
+  list.append('bar');
+  list.append('baz');
+
+  removed = list.removeAt(1);
+  test('TestRemoveAt', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail.value === 'baz',
+    'Removed is correct': removed.value === 'bar',
+    'Size is correct': list.size === 2,
+  });
+
+  removed = list.removeAt(1);
+  test('TestRemoveAt2', {
+    'Head is correct': list.head.value === 'foo',
+    'Tail is correct': list.tail === list.head,
+    'Removed is correct': removed.value === 'baz',
+    'Size is correct': list.size === 1,
+  });
+}());
