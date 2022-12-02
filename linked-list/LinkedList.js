@@ -157,6 +157,18 @@ module.exports = class LinkedList {
     return null;
   }
 
+  toArray() {
+    const array = [];
+
+    let current = this.#head;
+    while (current != null) {
+      array.push(current.value);
+      current = current.nextNode;
+    }
+
+    return array;
+  }
+
   toString() {
     const stringBuilder = [];
     let current = this.#head;
