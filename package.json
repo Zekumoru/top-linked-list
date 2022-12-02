@@ -7,7 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/Zekumoru/top-linked-list.git"
   },
-  "keywords": [],
+  "keywords": [
+    "linked-list"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
