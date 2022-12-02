@@ -21,7 +21,7 @@ lintStaged=$(npm pkg get lint-staged)
 npm pkg delete scripts devDependencies lint-staged
 json -I -f package.json -e "this.version=\"$version\""
 
-npm publish
+npm publish --access=public
 
 # Restore dev properties
 json -I -f package.json -e "this.scripts=$scripts"
