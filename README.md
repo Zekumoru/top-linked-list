@@ -128,6 +128,14 @@ find(value)
 
 Returns the index of the node containing `value`, or `null` if not in the list.
 
+#### toArray
+
+```js
+toArray()
+```
+
+Converts the list into an array then returns it.
+
 #### toString
 
 ```js
